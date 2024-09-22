@@ -1,0 +1,15 @@
+[0;1;31m×[0m nginx.service - A high performance web server and a reverse proxy server
+     Loaded: loaded (]8;;file://ubuntu-s-1vcpu-1gb-ams3-01/usr/lib/systemd/system/nginx.service/usr/lib/systemd/system/nginx.service]8;;; [0;1;32menabled[0m; preset: [0;1;32menabled[0m)
+     Active: [0;1;31mfailed[0m (Result: exit-code) since Sat 2024-09-21 15:23:26 UTC; 10s ago
+       Docs: ]8;;man:nginx(8)man:nginx(8)]8;;
+    Process: 20369 ExecStartPre=/usr/sbin/nginx -t -q -g daemon on; master_process on; [0;1;31m(code=exited, status=1/FAILURE)[0m
+        CPU: 20ms
+
+Sep 21 15:23:26 ubuntu-s-1vcpu-1gb-ams3-01 systemd[1]: Starting nginx.service - A high performance web server and a reverse proxy server...
+Sep 21 15:23:26 ubuntu-s-1vcpu-1gb-ams3-01 nginx[20369]: 2024/09/21 15:23:26 [warn] 20369#20369: duplicate extension "html", content type: "text/html", previous content type: "text/html" in /etc/nginx/sites-enabled/timebuffer:13
+Sep 21 15:23:26 ubuntu-s-1vcpu-1gb-ams3-01 nginx[20369]: 2024/09/21 15:23:26 [warn] 20369#20369: duplicate extension "htm", content type: "text/html", previous content type: "text/html" in /etc/nginx/sites-enabled/timebuffer:13
+Sep 21 15:23:26 ubuntu-s-1vcpu-1gb-ams3-01 nginx[20369]: 2024/09/21 15:23:26 [emerg] 20369#20369: cannot load certificate "/etc/letsencrypt/live/365ects.com/fullchain.pem": BIO_new_file() failed (SSL: error:80000002:system library::No such file or directory:calling fopen(/etc/letsencrypt/live/365ects.com/fullchain.pem, r) error:10000080:BIO routines::no such file)
+Sep 21 15:23:26 ubuntu-s-1vcpu-1gb-ams3-01 nginx[20369]: nginx: configuration file /etc/nginx/nginx.conf test failed
+Sep 21 15:23:26 ubuntu-s-1vcpu-1gb-ams3-01 systemd[1]: [0;1;39m[0;1;31m[0;1;39mnginx.service: Control process exited, code=exited, status=1/FAILURE[0m
+Sep 21 15:23:26 ubuntu-s-1vcpu-1gb-ams3-01 systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mnginx.service: Failed with result 'exit-code'.[0m
+Sep 21 15:23:26 ubuntu-s-1vcpu-1gb-ams3-01 systemd[1]: [0;1;31m[0;1;39m[0;1;31mFailed to start nginx.service - A high performance web server and a reverse proxy server.[0m
