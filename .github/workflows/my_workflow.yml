@@ -23,7 +23,7 @@ jobs:
       # Step 3: Deploy files to the DigitalOcean droplet
       - name: Deploy to DigitalOcean Droplet via SCP
         run: |
-          scp -o StrictHostKeyChecking=no -r * root@${{ 
+          scp -o StrictHostKeyChecking=no -r ./ root@${{ 
 secrets.DO_SERVER_IP }}:/var/www/shared-node-app
 
 
