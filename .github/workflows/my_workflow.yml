@@ -1,15 +1,38 @@
-name: CI Workflow
+name: Deploy to DigitalOcean Droplet
 
 on:
   push:
     branches:
-      - main
+      - master  # Adjust to the branch you want to deploy from
 
 jobs:
-  test:
+  deploy:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v2
-      - name: Run tests
-        run: npm test
+      # Step 1: Checkout the latest code from the repository
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      # Step 2: Set up SSH agent with the private key from GitHub Secrets
+      - name: Setup SSH for DigitalOcean
+        uses: webfactory/ssh-agent@v0.5.3
+        with:
+          ssh-private-key: ${{ secrets.DO_SSH_PRIVATE_KEY }}
+
+      # Step 3: Deploy files to the DigitalOcean droplet
+      - name: Deploy to DigitalOcean Droplet via SCP
+        run: |
+          scp -r -o StrictHostKeyChecking=no ./ 
+root@209.38.42.184:/var/www/shared-node-app
+
+      # Step 4: Run deployment commands on the droplet via SSH
+      - name: SSH and run deployment commands
+        run: |
+          ssh -o StrictHostKeyChecking=no root@209.38.42.184 << 
+'EOF'
+            cd /var/www/shared-node-app
+            npm install  # Install dependencies (if you're using Node.js)
+            pm2 restart all  # Restart your Node.js app (if using PM2)
+          EOF
 
