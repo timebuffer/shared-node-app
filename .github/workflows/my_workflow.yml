@@ -29,8 +29,7 @@ jobs:
       # Step 4: Run deployment commands on the droplet via SSH
       - name: SSH and run deployment commands
         run: |
-          ssh -o StrictHostKeyChecking=no root@${{secrets.DO_SERVER_IP}} 
-<< 'EOF'
+          ssh -o StrictHostKeyChecking=no root@${{secrets.DO_SERVER_IP}} <<EOF
             cd /var/www/shared-node-app
             npm install  # Install dependencies (if you're using Node.js)
             pm2 restart all  # Restart your Node.js app (if using PM2)
