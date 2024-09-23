@@ -1,0 +1,15 @@
+# Dependency directories
+node_modules/
+build/
+dist/
+
+# Logs
+logs/
+*.log
+
+# Environment files
+.env
+
+# Ignore build output
+*.tar.gz
+

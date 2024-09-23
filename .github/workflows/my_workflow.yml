@@ -23,7 +23,8 @@ jobs:
       # Step 3: Deploy files to the DigitalOcean droplet
       - name: Deploy to DigitalOcean Droplet via SCP
         run: |
-	  tar -czf app.tar.gz *  # Compress the files
+	  tar --exclude='node_modules' --exclude='.git' -czf app.tar.gz *  
+# Exclude node_modules and .git
           scp -o StrictHostKeyChecking=no -r * root@${{secrets.DO_SERVER_IP}}:/var/www/shared-node-app
 
 
