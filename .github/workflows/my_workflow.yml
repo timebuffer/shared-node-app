@@ -1,4 +1,4 @@
-name: Deploy to DigitalOcean Droplet
+name: Deploy to DigitalOcean Droplet 
 
 on:
   push:
@@ -14,7 +14,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      # Step 2: Set up SSH agent with the private key from GitHub Secrets
+      # Step 2: Set up SSHagent with the private key from GitHub Secrets
       - name: Setup SSH for DigitalOcean
         uses: webfactory/ssh-agent@v0.5.3
         with:
