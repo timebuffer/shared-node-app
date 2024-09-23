@@ -23,8 +23,9 @@ jobs:
       # Step 3: Deploy files to the DigitalOcean droplet
       - name: Deploy to DigitalOcean Droplet via SCP
         run: |
-          scp -r -o StrictHostKeyChecking=no ./ root@${{ 
+          scp -o StrictHostKeyChecking=no -r ./ root@${{ 
 secrets.DO_SERVER_IP }}:/var/www/shared-node-app
+
 
       # Step 4: Run deployment commands on the droplet via SSH
       - name: SSH and run deployment commands
