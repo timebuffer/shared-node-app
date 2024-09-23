@@ -23,6 +23,7 @@ jobs:
       # Step 3: Deploy files to the DigitalOcean droplet
       - name: Deploy to DigitalOcean Droplet via SCP
         run: |
+	  tar -czf app.tar.gz *  # Compress the files
           scp -o StrictHostKeyChecking=no -r * root@${{secrets.DO_SERVER_IP}}:/var/www/shared-node-app
 
 
@@ -31,6 +32,8 @@ jobs:
         run: |
           ssh -o StrictHostKeyChecking=no root@${{secrets.DO_SERVER_IP}} <<EOF
             cd /var/www/shared-node-app
+	    tar -xzf app.tar.gz  # Extract files
+	    rm app.tar.gz  # Optional: Remove the archive after extraction
             npm install  # Install dependencies (if you're using Node.js)
             pm2 restart all  # Restart your Node.js app (if using PM2)
           EOF
