@@ -22,12 +22,14 @@ jobs:
 
  # Step 3: Deploy files to the DigitalOcean droplet via SCP
       - name: Deploy to DigitalOcean Droplet via SCP
-        run: |scp -o StrictHostKeyChecking=no -r * 
+        run: |
+scp -o StrictHostKeyChecking=no -r * 
 root@${{secrets.DO_SERVER_IP}}:/var/www/shared-node-app
 
       # Step 4: SSH into the droplet and run deployment commands
       - name: SSH and run deployment commands
-        run: |ssh -o StrictHostKeyChecking=no 
+        run: |
+ssh -o StrictHostKeyChecking=no 
 root@${{secrets.DO_SERVER_IP}} <<EOF
             cd /var/www/shared-node-app
             npm install  # Install dependencies (if you're using Node.js)
