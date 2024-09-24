@@ -2,6 +2,8 @@
 
 import React from 'react';
 import './App.css'; // Optional: Create an external CSS file for styling if needed
+import illustration from './assets/404-illustration.png'; // Adjust the path accordingly
+
 
 function App() {
   return (
@@ -11,9 +13,9 @@ function App() {
       
       <div className="illustration" style={{ margin: '20px 0' }}>
         <img 
-          src="/404-illustration.png" 
+          src={illustration} 
           alt="Lost in cyberspace illustration"
-          style={{ maxWidth: '100%', height: 'auto' }}
+          style={{ width: '300px', height: 'auto' }}  
         />
       </div>
       
