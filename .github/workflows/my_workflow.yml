@@ -32,6 +32,6 @@ jobs:
 root@${{secrets.DO_SERVER_IP}} <<EOF
             cd /var/www/shared-node-app
             npm install  # Install dependencies (if you're using Node.js)
-	    npm run build  # Build the production version of the app
+            npm run build  # Build the production version of the app
             pm2 restart all  # Restart your Node.js app (if using PM2)
           EOF
