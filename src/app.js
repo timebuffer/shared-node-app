@@ -11,7 +11,7 @@ function App() {
       
       <div className="illustration" style={{ margin: '20px 0' }}>
         <img 
-          src="404-illustration.png" 
+          src="/404-illustration.png" 
           alt="Lost in cyberspace illustration"
           style={{ maxWidth: '100%', height: 'auto' }}
         />
