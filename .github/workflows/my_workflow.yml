@@ -33,5 +33,5 @@ jobs:
             npm install  # Install dependencies (if you're using Node.js)
             npm run build  # Build the production version of the app
             pm2 describe shared-node-app || pm2 start server.js --name shared-node-app  # Start the app if not running
-      pm2 restart shared-node-app  # Restart the app
+            pm2 restart shared-node-app  # Restart the app
           EOF
