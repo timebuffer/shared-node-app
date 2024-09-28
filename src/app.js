@@ -37,6 +37,12 @@ function App() {
       >
         Go back to Home
       </a>
+
+      <div className="additional-links" style={{ marginTop: '20px', color: '#666', fontSize: '1rem' }}>
+        <p>
+          Or find out more at <a href="https://domainsurvey.net" target="_blank" style={{ color: '#007bff', textDecoration: 'none' }}>domainsurvey.net</a>
+        </p>
+      </div>
       
       <div className="signature" style={{ marginTop: '30px', color: '#666' }}>
         <p>Powered by <a href="https://smartbroad.net" target="_blank" style={{ color: '#007bff', textDecoration: 'none' }}>smartbroad.net</a></p>
